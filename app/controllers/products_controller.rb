@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
           flash[:notice] = "Product successfully added!"
           redirect_to products_path
         else
+          flash[:alert] = "Error detected - product not added. Please try again."
           render :new
         end
     end
@@ -33,8 +34,10 @@ class ProductsController < ApplicationController
     def update
         @product= Product.find(params[:id])
         if @product.update(product_params)
+          flash[:notice] = "Product successfully updated!"
           redirect_to products_path
         else
+          flash[:alert] = "Error detected - product not updated. Please try again."
           render :edit
         end
     end
