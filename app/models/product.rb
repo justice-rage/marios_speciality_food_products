@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   validates_length_of :name, minimum: 3, maximum: 100
   validates :cost, presence: true
   validates_numericality_of :cost, greater_than: 0, less_than_or_equal_to: 1000000
-  validates :country_of_orgin, presence: true
+  validates :country_of_origin, presence: true
 
   COUNTRY_LIST = [
     "United States of America",
