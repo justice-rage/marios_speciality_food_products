@@ -1,16 +1,7 @@
 class ProductsController < ApplicationController
 
     def index
-      case
-      when params[:sort] == "most_recent"
-        @products = Product.most_recent
-      when params[:sort] == "most_reviewed"
-        @products = Product.most_reviewed
-      when params[:sort] == "usa_product"
-        @products = Product.usa_product
-      else
         @products = Product.all
-      end
         render :index
     end
   
