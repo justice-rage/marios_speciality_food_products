@@ -5,6 +5,11 @@
         <button class="btn btn-link"><%= link_to "Home", home_path, class: "nav-brand" %></button>
         <% if current_user && current_user.admin %>
           <button class="btn btn-link">
+            <%= link_to "Dashboard", rails_admin_path %>
+          </button>
+        <% end %>
+        <% if current_user && current_user.admin %>
+          <button class="btn btn-link">
             <%= link_to "Add Product", new_product_path %>
           </button>
         <% end %>
