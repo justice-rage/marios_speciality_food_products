@@ -1,20 +1,34 @@
 class ProductsController < ApplicationController
-
-    def index
-        @products = Product.all
-        render :home
-    end
   
-    def new
-        @product = Product.new
-        render :new
+  def home
+    case
+    when params[:sort] == "most_recent"
+      @products = Product.most_recent
+    when params[:sort] == "most_reviewed"
+      @products = Product.most_reviewed
+    when params[:sort] == "usa_product"
+      @products = Product.usa_product
+    else
+      @products = Product.all
     end
+    render :home
+  end
   
-    def create
-        @product = Product.new(product_params)
-        if @product.save
-          flash[:notice] = "Product successfully added!"
-          redirect_to products_path
+  def index
+    @products = Product.all
+    render :index
+  end
+  
+  def new
+    @product = Product.new
+    render :new
+  end
+  
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      flash[:notice] = "Product successfully added!"
+      redirect_to products_path
         else
           flash[:alert] = "Error detected - product not added. Please try again."
           render :new
@@ -48,19 +62,6 @@ class ProductsController < ApplicationController
         redirect_to products_path
     end
 
-    def home
-      case
-      when params[:sort] == "most_recent"
-        @products = Product.most_recent
-      when params[:sort] == "most_reviewed"
-        @products = Product.most_reviewed
-      when params[:sort] == "usa_product"
-        @products = Product.usa_product
-      else
-        @products = Product.all
-      end
-      render :home
-    end
 
     private
     def product_params
