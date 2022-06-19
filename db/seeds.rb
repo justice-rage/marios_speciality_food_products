@@ -9,6 +9,9 @@
 Product.destroy_all
 Review.destroy_all
 
+admin = User.create(:email => 'admin@test.com', :password => 'Password!123', :admin => true)
+user = User.create(:email => 'user@test.com', :password => 'Password!123')
+
 50.times do
     product = Product.create!(
       name: Faker::Food.sushi,
