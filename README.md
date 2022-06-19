@@ -9,7 +9,9 @@ A CRUD web application built to display my understanding of Ruby on Rails during
 - Pry
 - Rspec
 - HTML
+- RailsAdmin
 - Capybara
+- Devise
 ## Description
 
 A small CRUD web application MVP meant to display a fictional online marketplace's food products. It will allow users to add, view, edit and delete products as well as reviews.
@@ -25,6 +27,35 @@ A small CRUD web application MVP meant to display a fictional online marketplace
 - rake db:seed
 - rails s 
 - Navigate to localhost:3000 in your default browser.
+
+## User Stories and Account Type Information
+
+### Preseeded Accounts for Testing
+Must seed the database before preseeded accounts are available for utilization.
+
+1. User
+- Email: user@test.com
+- Password: Password!123
+
+1. Admin
+- Email: admin@test.com
+- Password: Password!123
+
+### User
+1. A user can sign-up / sign-in / sign-out.
+2. A user can view products.
+3. A user can view and add reviews to products.
+4. A user can see a product with the most reviews.
+5. A user can see the three most recently added products.
+6. A user who is not signed in will only be allowed reading privileges.
+
+### Admin
+1. An admin can sign-up / sign-in / sign-out.
+2. An admin can view products.
+3. An admin can view product reviews.
+4. An admin can add, update, delete products.
+5. An admin can add, update, delete reviews from a products.
+
 
 ## Bugs
 - None currently known.
