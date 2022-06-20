@@ -56,6 +56,12 @@ Must seed the database before preseeded accounts are available for utilization.
 4. An admin can add, update, delete products.
 5. An admin can add, update, delete reviews from a products.
 
+## Testing
+1. You can run tests with the following command in the terminal:
+- rspec
+
+Disclaimer: 
+8 feature tests curently failing - work in progress.
 
 ## Bugs
 - None currently known.
