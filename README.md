@@ -14,7 +14,7 @@ A CRUD web application built to display my understanding of Ruby on Rails during
 - Devise
 ## Description
 
-A small CRUD web application MVP meant to display a fictional online marketplace's food products. It will allow users to add, view, edit and delete products as well as reviews.
+A small CRUD web application MVP meant to display a fictional online marketplace's food products. It will allow users to add, view, edit and delete products as well as reviews with full authentication and authorization functionality utilizing Devise.
 
 ## Setup/Installation Requirements
 
