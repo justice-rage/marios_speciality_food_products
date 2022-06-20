@@ -37,7 +37,7 @@ Must seed the database before preseeded accounts are available for utilization.
 - Email: user@test.com
 - Password: Password!123
 
-1. Admin
+2. Admin
 - Email: admin@test.com
 - Password: Password!123
 
