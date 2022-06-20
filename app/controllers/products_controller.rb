@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :only => [:new, :edit, :destroy] do
+    flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
     redirect_to new_user_session_path unless current_user && current_user.admin
   end
   

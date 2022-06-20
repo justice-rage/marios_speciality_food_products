@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :only => [:edit, :destroy] do
+  before_action :only => [:edit, :destroy, :update] do
+    flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
     redirect_to new_user_session_path unless current_user && current_user.admin
   end
   
