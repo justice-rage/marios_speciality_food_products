@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :only => [:new, :edit, :destroy] do
-    flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
-    redirect_to new_user_session_path unless current_user && current_user.admin
+    if not current_user && current_user.admin
+      redirect_to new_user_session_path
+      flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
+    end
   end
   
   def home
@@ -62,8 +64,10 @@ class ProductsController < ApplicationController
   
     def destroy
         @product = Product.find(params[:id])
-        @product.destroy
-        redirect_to products_path
+        if @product.destroy
+          flash[:notice] = "Product successfully deleted!"
+          redirect_to products_path
+        end
     end
 
 
