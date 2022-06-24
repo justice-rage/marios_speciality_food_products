@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
   before_action :only => [:edit, :destroy, :update] do
-    flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
-    redirect_to new_user_session_path unless current_user && current_user.admin
+    if not current_user && current_user.admin
+      redirect_to new_user_session_path
+      flash[:alert] = "Unauthorized. Log in with credentials authorized for attempted action to proceed."
+    end
   end
-  
-  before_action :authenticate_user!, :only => [:new]
-
   
     def new
       @product = Product.find(params[:product_id])
@@ -51,8 +51,10 @@ class ReviewsController < ApplicationController
 
     def destroy
       @review = Review.find(params[:id])
-      @review.destroy
-      redirect_to product_path(@review.product)
+      if @review.destroy
+        flash[:notice] = "Review successfully deleted!"
+        redirect_to product_path(@review.product)
+      end
     end
   
     private
