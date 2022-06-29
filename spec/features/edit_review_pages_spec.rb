@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 describe "edit review" do
+  before(:each) do
+    visit new_user_registration_path
+    click_on "Sign up!"
+    fill_in "user_email", :with => "admin@epicodus.com"
+    fill_in "user_password", :with => "epicodus123"
+    fill_in "user_password_confirmation", :with => "epicodus123"
+    click_on "Sign up"
+    dumby_admin = User.where(:email => "admin@epicodus.com").update(:admin => true)
+  end
+
   it "edits reviews" do
     product = Product.create(:name => 'Crab Cake', :cost => '2', :country_of_origin => 'Italy')
     review = Review.create(:author => 'Mojo Jojo', :content_body => 'Who came up with the idea of crab cakes? It cannot be very popular or else birthdays would very different.', :rating => '2', :product_id => product.id)
